@@ -2,6 +2,8 @@
 
 ### Challenge
 
+You will create a React Project from Scratch... this is just an example.
+
 Create a small note pad app that lets a submit a small form with their name, date, and small note to remember.
 
 Once submitted the note should appear in a nicely styled notes, and be added to the list of notes displayed on the screen.
