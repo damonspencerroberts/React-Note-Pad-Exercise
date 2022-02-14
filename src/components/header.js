@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 const Header = (props) => {
-  return <StyledHeader>{props.children}</StyledHeader>;
+  return <StyledHeader {...props}>{props.children}</StyledHeader>;
 };
 
 export default Header;
