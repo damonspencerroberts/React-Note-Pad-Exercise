@@ -13,22 +13,31 @@ function App() {
   const [notes, setNotes] = useState([]);
   return (
     <NoteContext.Provider value={{ notes, setNotes }}>
-      <MainContainer>
-        <Header>Chillipharm Note Pad</Header>
-        {showForm ? (
-          <Form handleExitClick={() => setShowForm(false)} />
-        ) : (
-          <Button
-            style={{ background: "#6EE5F5", width: 300 }}
-            onClick={() => setShowForm(true)}
-          >
-            Add a note
-          </Button>
-        )}
-      </MainContainer>
-      <NotesContainer>
-        <Notes />
-      </NotesContainer>
+      <div
+        style={{
+          padding: 10,
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+      >
+        <MainContainer>
+          <Header>Chillipharm Note Pad</Header>
+          {showForm ? (
+            <Form handleExitClick={() => setShowForm(false)} />
+          ) : (
+            <Button
+              style={{ background: "#6EE5F5", width: 300 }}
+              onClick={() => setShowForm(true)}
+            >
+              Add a note
+            </Button>
+          )}
+        </MainContainer>
+        <NotesContainer>
+          <Notes />
+        </NotesContainer>
+      </div>
     </NoteContext.Provider>
   );
 }

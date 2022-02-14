@@ -8,7 +8,6 @@ const NotesContainer = (props) => {
 export default NotesContainer;
 
 const StyledNotesContainer = styled.div`
-  padding: 25px 50px;
   display: flex;
   width: 100%;
   display: flex;
