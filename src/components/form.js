@@ -6,13 +6,12 @@ import Input from "./input";
 import TextBox from "./textbox";
 
 const Form = (props) => {
-  const { setNotes } = useContext(NoteContext);
+  const { notes, setNotes } = useContext(NoteContext);
   const [formData, setFormData] = useState({
     name: "",
     date: "",
     note: "",
   });
-
 
   const handleFormChange = (event, key) => {
     const dupFormData = { ...formData };

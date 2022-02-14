@@ -5,6 +5,7 @@ import NoteContext from "../context/NoteContext";
 
 const Notes = () => {
   const { notes } = useContext(NoteContext);
+  console.log(notes);
   const notesLength = notes.length;
   return (
     <>
