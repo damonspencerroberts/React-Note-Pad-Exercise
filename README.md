@@ -73,3 +73,4 @@ npm start
 - Ability to delete a note
 - Ability to update a note
 - More fields as inputs
+- Add a database to persist the data
