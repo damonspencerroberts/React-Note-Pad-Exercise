@@ -6,21 +6,29 @@ import Input from "./input";
 import TextBox from "./textbox";
 
 const Form = (props) => {
-  const tester = useContext(NoteContext);
+  const { setNotes } = useContext(NoteContext);
   const [formData, setFormData] = useState({
     name: "",
     date: "",
     note: "",
   });
 
+
   const handleFormChange = (event, key) => {
     const dupFormData = { ...formData };
     dupFormData[key] = event.target.value;
     setFormData(dupFormData);
   };
-  
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const dupNotes = [...notes];
+    dupNotes.push(formData);
+    setNotes(dupNotes);
+  };
+
   return (
-    <StyledForm {...props}>
+    <StyledForm onSubmit={handleFormSubmit} {...props}>
       <InnerForm>
         <StyledExit onClick={props.handleExitClick}>X</StyledExit>
         <Input
