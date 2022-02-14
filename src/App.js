@@ -19,7 +19,7 @@ function App() {
           <Form handleExitClick={() => setShowForm(false)} />
         ) : (
           <Button
-            style={{ background: "#6EE5F5" }}
+            style={{ background: "#6EE5F5", width: 300 }}
             onClick={() => setShowForm(true)}
           >
             Add a note
