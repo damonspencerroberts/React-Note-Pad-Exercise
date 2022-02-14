@@ -16,7 +16,7 @@ const StyledInput = styled.input`
   box-shadow: 0px 4px 4px rgba(black, .5);
   background: transparent;
   color: black;
-  height: 32px;
   font-size: 16px;
-  padding-left: 12px;
+  padding: 12px;
+  border-radius: 4px;
 `
