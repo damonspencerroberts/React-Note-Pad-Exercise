@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# React Notepad Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Challenge
 
-## Available Scripts
+Create a small note pad app that lets a submit a small form with their name, date, and small note to remember.
 
-In the project directory, you can run:
+Once submitted the note should appear in a nicely styled notes, and be added to the list of notes displayed on the screen.
 
-### `npm start`
+Please see a **very basic** example here: [https://damonspencerroberts.github.io/React-Note-Pad-Exercise/](https://damonspencerroberts.github.io/React-Note-Pad-Exercise/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### **Components to create**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Input
+- TextArea
+- Header
+- Button
+- Form
+    
+    Needs to include
+    
+    - Input type text
+    - Input type date
+    - TextArea
+    - Button for submitting
+    - Corner exit button to exit out of form
+- Notes component that will handle all the individual notes
+- Note component that will be the specific note.
 
-### `npm test`
+### **MVP Requirements**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. User can type their name, the date and their note inside a form and be able to submit the form.
+2. Validation will verify that no fields are empty and only submit the form if all fields are filled.
+3. The user should have a button that allows them to add a new note that will display the form.
+4. User can close the form by clicking on an exit button.
+5. Notes should be displayed with a nice list of note cards in order or creation.
+6. If there are no notes display ‘No notes yet’ message to the user.
 
-### `npm run build`
+### Use Hooks
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- useState
+- useEffect
+- Note: *Create you own hooks if you want 🙂*
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Resources
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Create a React app with**
 
-### `npm run eject`
+```jsx
+npx create-react-app [app-name]
+cd [app-name]
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Use Packages**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Styled components
+    
+    [styled-components](https://styled-components.com/)
+    
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+*Note: use any other packages that you find that might be relavent.*
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Bonus:**
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Add a sorting option to sort by date.
+- Colour randomiser for the note background
+    - When adding a note have a random background color.
+- Different validation schema
+    - Only certain letters/numbers etc.
+- Using redux for state management
+- Using `useContext` for state management
+- Awesome designs → More text, headers anything you want be creative
+- Ability to delete a note
+- Ability to update a note
+- More fields as inputs
