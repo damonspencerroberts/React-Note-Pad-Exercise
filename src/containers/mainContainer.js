@@ -9,7 +9,7 @@ const MainContainer = (props) => {
 export default MainContainer;
 
 const StyledMainContainer = styled.div`
-  padding: 50px;
+  padding: 25px 50px;
   display: flex;
   align-items: center;
   justify-content: center;

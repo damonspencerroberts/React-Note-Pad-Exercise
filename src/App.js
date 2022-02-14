@@ -3,7 +3,9 @@ import "./App.css";
 import Button from "./components/button";
 import Form from "./components/form";
 import Header from "./components/header";
+import Notes from "./components/notes";
 import MainContainer from "./containers/mainContainer";
+import NotesContainer from "./containers/notesContainer";
 import NoteContext from "./context/NoteContext";
 
 function App() {
@@ -24,6 +26,9 @@ function App() {
           </Button>
         )}
       </MainContainer>
+      <NotesContainer>
+        <Notes />
+      </NotesContainer>
     </NoteContext.Provider>
   );
 }
