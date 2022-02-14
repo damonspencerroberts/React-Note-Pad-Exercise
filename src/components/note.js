@@ -21,6 +21,7 @@ const StyledNote = styled.div`
   background: #fffe57;
   box-shadow: 0px 4px 4px black;
   min-width: calc(100% / 3);
+  margin: 10px;
 `;
 
 const Header = styled.div`

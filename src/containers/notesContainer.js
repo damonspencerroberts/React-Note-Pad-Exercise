@@ -12,5 +12,5 @@ const StyledNotesContainer = styled.div`
   display: flex;
   width: 100%;
   display: flex;
-  flex: wrap;
+  flex-wrap: wrap;
 `;

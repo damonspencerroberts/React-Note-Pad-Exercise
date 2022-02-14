@@ -24,6 +24,7 @@ const Form = (props) => {
     const dupNotes = [...notes];
     dupNotes.push(formData);
     setNotes(dupNotes);
+    props.handleExitClick();
   };
 
   return (
