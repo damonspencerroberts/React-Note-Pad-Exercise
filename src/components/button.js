@@ -1,14 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-export const Button = (props) => {
-  return <StyledButton {...props}>Button</StyledButton>;
+const Button = (props) => {
+  return <StyledButton {...props}>{props.children}</StyledButton>;
 };
+
+export default Button;
 
 const StyledButton = styled.button`
   padding: 16px 12px;
   width: 100%;
-  background: #00FF5A;
+  background: #00ff5a;
   font-weight: 500;
   color: black;
   display: flex;
