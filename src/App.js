@@ -22,7 +22,7 @@ function App() {
         }}
       >
         <MainContainer>
-          <Header>Chillipharm Note Pad</Header>
+          <Header>Note Pad React Challenge</Header>
           {showForm ? (
             <Form handleExitClick={() => setShowForm(false)} />
           ) : (
