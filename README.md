@@ -25,7 +25,7 @@ Please see a **very basic** example here: [https://damonspencerroberts.github.io
     - TextArea
     - Button for submitting
     - Corner exit button to exit out of form
-- Notes component that will handle all the individual notes
+- Notes component that will handle listing the specific notes.
 - Note component that will be the specific note.
 
 ### **MVP Requirements**
