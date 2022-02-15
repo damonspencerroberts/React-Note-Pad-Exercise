@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/React-Note-Pad-Exercise/static/css/main.073c9b0a.css",
-    "main.js": "/React-Note-Pad-Exercise/static/js/main.13651abc.js",
+    "main.js": "/React-Note-Pad-Exercise/static/js/main.fca3e278.js",
     "index.html": "/React-Note-Pad-Exercise/index.html",
     "main.073c9b0a.css.map": "/React-Note-Pad-Exercise/static/css/main.073c9b0a.css.map",
-    "main.13651abc.js.map": "/React-Note-Pad-Exercise/static/js/main.13651abc.js.map"
+    "main.fca3e278.js.map": "/React-Note-Pad-Exercise/static/js/main.fca3e278.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.13651abc.js"
+    "static/js/main.fca3e278.js"
   ]
 }
