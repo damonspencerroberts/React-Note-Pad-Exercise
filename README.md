@@ -2,6 +2,8 @@
 
 ### Challenge
 
+You will create a React Project from Scratch... this is just an example.
+
 Create a small note pad app that lets a submit a small form with their name, date, and small note to remember.
 
 Once submitted the note should appear in a nicely styled notes, and be added to the list of notes displayed on the screen.
@@ -32,7 +34,7 @@ Please see a **very basic** example here: [https://damonspencerroberts.github.io
 2. Validation will verify that no fields are empty and only submit the form if all fields are filled.
 3. The user should have a button that allows them to add a new note that will display the form.
 4. User can close the form by clicking on an exit button.
-5. Notes should be displayed with a nice list of note cards in order or creation.
+5. Notes should be displayed with a nice list of note cards.
 6. If there are no notes display ‘No notes yet’ message to the user.
 
 ### Use Hooks
@@ -74,3 +76,4 @@ npm start
 - Ability to update a note
 - More fields as inputs
 - Add a database to persist the data
+- Add Jest and test your components, and hooks.
