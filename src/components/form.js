@@ -25,23 +25,27 @@ const Form = (props) => {
     setFormData(dupFormData);
   };
 
+  const handleOnBlur = (value, key) => {
+    const dupErrors = { ...formErrors };
+    dupErrors[key] = value === "";
+    setFormErrors(dupErrors);
+  };
+
+  const handleValidateForm = () => {
+    const dupFormErrors = { ...formErrors };
+    const validation = Object.keys(formErrors).map((key) => {
+      dupFormErrors[key] = formData[key] === "";
+      return formData[key] === "";
+    });
+    setFormErrors(dupFormErrors);
+    return validation;
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const formErrorsDuplicate = [];
-    Object.keys(formData).forEach((key) => {
-      if (formData[key] === "") formErrorsDuplicate.push(key);
-    });
-    if (formErrorsDuplicate.length > 0) {
-      const dupFormErrors = { ...formErrors };
-      Object.keys(formErrors).forEach((key) => {
-        if (formErrorsDuplicate.includes(key)) {
-          dupFormErrors[key] = true;
-        } else {
-          dupFormErrors[key] = false;
-        }
-      });
-      setFormErrors(dupFormErrors);
-    } else {
+    const currentErrors = handleValidateForm();
+    const noErrors = !Object.values(currentErrors).includes(true);
+    if (noErrors) {
       const dupNotes = [...notes];
       dupNotes.push(formData);
       setNotes(dupNotes);
@@ -61,6 +65,7 @@ const Form = (props) => {
           placeholder="Your Name"
           style={{ marginBottom: 10 }}
           onChange={(e) => handleFormChange(e, "name")}
+          onBlur={(e) => handleOnBlur(e.target.value, "name")}
           value={formData.name}
         />
         {formErrors.date && (
@@ -71,6 +76,7 @@ const Form = (props) => {
           style={{ marginBottom: 10 }}
           value={formData.date}
           onChange={(e) => handleFormChange(e, "date")}
+          onBlur={(e) => handleOnBlur(e.target.value, "date")}
         />
         {formErrors.note && (
           <ErrorMessage>This field is required.</ErrorMessage>
@@ -80,6 +86,7 @@ const Form = (props) => {
           placeholder="Your Note"
           style={{ marginBottom: 10 }}
           onChange={(e) => handleFormChange(e, "note")}
+          onBlur={(e) => handleOnBlur(e.target.value, "note")}
           value={formData.note}
         />
         <Button type="submit">Submit</Button>
