@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Button from "./button";
 
 const Note = (props) => {
   const { name, date, note } = props.note;
@@ -10,6 +11,10 @@ const Note = (props) => {
         <Date>{date}</Date>
       </Header>
       <Content>{note}</Content>
+      <Footer>
+        <Button style={{ background: "purple", width: 50, height: 10, color: 'white', margin: 2 }}>Edit</Button>
+        <Button style={{ background: "red", width: 50, height: 10, margin: 2  }}>Delete</Button>
+      </Footer>
     </StyledNote>
   );
 };
@@ -35,7 +40,14 @@ const Content = styled.div`
   font-size: 16px;
   font-weight: 300;
   color: black;
-  padding-top: 10px;
+  padding: 20px 10px 20px 0;
+`;
+
+const Footer = styled.div`
+  border-top: 1px solid grey;
+  padding: 5px;
+  display: flex;
+  align-items: center;
 `;
 
 const Name = styled.div`
