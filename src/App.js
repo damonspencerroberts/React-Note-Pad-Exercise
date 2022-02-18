@@ -34,12 +34,14 @@ function App() {
               Add a note
             </Button>
           )}
-          <Button
-            style={{ background: "orange", width: 200, marginTop: 10 }}
-            onClick={() => setSortNotes(!sortNotes)}
-          >
-            {sortNotes ? "Clear sorting changes" : "Sort by date"}
-          </Button>
+          {notes?.length > 0 && (
+            <Button
+              style={{ background: "orange", width: 200, marginTop: 10 }}
+              onClick={() => setSortNotes(!sortNotes)}
+            >
+              {sortNotes ? "Clear sorting changes" : "Sort by date"}
+            </Button>
+          )}
         </MainContainer>
         <NotesContainer>
           <Notes />
