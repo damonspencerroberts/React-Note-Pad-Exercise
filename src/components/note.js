@@ -1,19 +1,45 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import NoteContext from "../context/NoteContext";
 import Button from "./button";
 
 const Note = (props) => {
-  const { name, date, note } = props.note;
+  const { notes, setNotes } = useContext(NoteContext);
+  const { name, date, note, id } = props.note;
+
+  const handleDeleteNote = (event, id) => {
+    event.preventDefault();
+    const noteIndex = notes.findIndex((note) => note.id === id);
+    const dupNotes = [...notes];
+    dupNotes.splice(noteIndex, 1);
+    setNotes(dupNotes);
+  };  
+
   return (
-    <StyledNote>
+    <StyledNote id={id}>
       <Header>
         <Name>{name}</Name>
         <Date>{date}</Date>
       </Header>
       <Content>{note}</Content>
       <Footer>
-        <Button style={{ background: "purple", width: 50, height: 10, color: 'white', margin: 2 }}>Edit</Button>
-        <Button style={{ background: "red", width: 50, height: 10, margin: 2  }}>Delete</Button>
+        <Button
+          style={{
+            background: "purple",
+            width: 50,
+            height: 10,
+            color: "white",
+            margin: 2,
+          }}
+        >
+          Edit
+        </Button>
+        <Button
+          style={{ background: "red", width: 50, height: 10, margin: 2 }}
+          onClick={(e) => handleDeleteNote(e, id)}
+        >
+          Delete
+        </Button>
       </Footer>
     </StyledNote>
   );

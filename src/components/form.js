@@ -4,6 +4,7 @@ import NoteContext from "../context/NoteContext";
 import Button from "./button";
 import Input from "./input";
 import TextBox from "./textbox";
+import { v4 as uuidv4 } from 'uuid';
 
 const Form = (props) => {
   const { notes, setNotes } = useContext(NoteContext);
@@ -48,7 +49,7 @@ const Form = (props) => {
     const noErrors = !Object.values(currentErrors).includes(true);
     if (noErrors) {
       const dupNotes = [...notes];
-      const noteId = notes.length + 1;
+      const noteId = uuidv4();
       const formDataWithId = { ...formData, id: noteId };
       dupNotes.push(formDataWithId);
       setNotes(dupNotes);
