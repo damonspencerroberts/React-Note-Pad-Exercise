@@ -115,7 +115,9 @@ const Form = (props) => {
           onBlur={(e) => handleOnBlur(e.target.value, "note")}
           value={formData.note}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit">
+          {Object.keys(updatedNote).length === 0 ? "Submit" : "Update"}
+        </Button>
       </InnerForm>
     </StyledForm>
   );
