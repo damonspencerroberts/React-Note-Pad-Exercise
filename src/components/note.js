@@ -4,7 +4,7 @@ import NoteContext from "../context/NoteContext";
 import Button from "./button";
 
 const Note = (props) => {
-  const { notes, setNotes } = useContext(NoteContext);
+  const { notes, setNotes, setUpdatedNote, setShowForm } = useContext(NoteContext);
   const { name, date, note, id } = props.note;
 
   const handleDeleteNote = (event, id) => {
@@ -13,7 +13,16 @@ const Note = (props) => {
     const dupNotes = [...notes];
     dupNotes.splice(noteIndex, 1);
     setNotes(dupNotes);
-  };  
+    setShowForm(false);
+    setUpdatedNote({});
+  };
+
+  const handleUpdateNote = (event, id) => {
+    event.preventDefault();
+    const note = notes.find((note) => note.id === id);
+    setUpdatedNote(note);
+    setShowForm(true);
+  };
 
   return (
     <StyledNote id={id}>
@@ -31,6 +40,7 @@ const Note = (props) => {
             color: "white",
             margin: 2,
           }}
+          onClick={(e) => handleUpdateNote(e, id)}
         >
           Edit
         </Button>

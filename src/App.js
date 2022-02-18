@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Button from "./components/button";
 import Form from "./components/form";
@@ -11,9 +11,26 @@ import NoteContext from "./context/NoteContext";
 function App() {
   const [showForm, setShowForm] = useState(false);
   const [sortNotes, setSortNotes] = useState(false);
+  const [updatedNote, setUpdatedNote] = useState({});
   const [notes, setNotes] = useState([]);
+
+  const handleExit = () => {
+    setShowForm(false);
+    setUpdatedNote({});
+  }
+  
   return (
-    <NoteContext.Provider value={{ notes, setNotes, sortNotes, setSortNotes }}>
+    <NoteContext.Provider
+      value={{
+        notes,
+        setNotes,
+        sortNotes,
+        setSortNotes,
+        updatedNote,
+        setUpdatedNote,
+        setShowForm,
+      }}
+    >
       <div
         style={{
           padding: 10,
@@ -25,7 +42,7 @@ function App() {
         <MainContainer>
           <Header>Note Pad React Challenge</Header>
           {showForm ? (
-            <Form handleExitClick={() => setShowForm(false)} />
+            <Form handleExitClick={handleExit} />
           ) : (
             <Button
               style={{ background: "#6EE5F5", width: 300 }}

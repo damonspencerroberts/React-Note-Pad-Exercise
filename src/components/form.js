@@ -1,19 +1,24 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import NoteContext from "../context/NoteContext";
 import Button from "./button";
 import Input from "./input";
 import TextBox from "./textbox";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 const Form = (props) => {
-  const { notes, setNotes } = useContext(NoteContext);
+  const { notes, setNotes, updatedNote } = useContext(NoteContext);
   const [formData, setFormData] = useState({
     id: "",
     name: "",
     date: "",
     note: "",
   });
+
+  useEffect(() => {
+    if (Object.keys(updatedNote).length === 0) return;
+    setFormData(updatedNote);
+  }, [updatedNote]);
 
   const [formErrors, setFormErrors] = useState({
     name: false,
@@ -41,19 +46,36 @@ const Form = (props) => {
     });
     setFormErrors(dupFormErrors);
     return validation;
-  };  
+  };
+
+  const handleNewNote = () => {
+    const dupNotes = [...notes];
+    const noteId = uuidv4();
+    const formDataWithId = { ...formData, id: noteId };
+    dupNotes.push(formDataWithId);
+    setNotes(dupNotes);
+    props.handleExitClick();
+  };
+
+  const handleUpdateNote = () => {
+    const dupNotes = [...notes];
+    const updatedId = updatedNote.id;
+    const noteIndex = dupNotes.findIndex((note) => note.id === updatedId);
+    dupNotes[noteIndex] = { ...formData, id: updatedId };
+    setNotes(dupNotes);
+    props.handleExitClick();
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const currentErrors = handleValidateForm();
     const noErrors = !Object.values(currentErrors).includes(true);
     if (noErrors) {
-      const dupNotes = [...notes];
-      const noteId = uuidv4();
-      const formDataWithId = { ...formData, id: noteId };
-      dupNotes.push(formDataWithId);
-      setNotes(dupNotes);
-      props.handleExitClick();
+      if (Object.keys(updatedNote).length === 0) {
+        handleNewNote();
+      } else {
+        handleUpdateNote();
+      }
     }
   };
 
