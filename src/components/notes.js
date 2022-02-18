@@ -7,7 +7,7 @@ const Notes = () => {
   const { notes, sortNotes } = useContext(NoteContext);
   const [sortedNotes, setSortedNotes] = useState(notes);
   const notesLength = notes.length;
-
+  console.log(notes);
   useEffect(() => {
     if (sortNotes) {
       const dupSortedNotes = [...notes];

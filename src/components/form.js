@@ -8,6 +8,7 @@ import TextBox from "./textbox";
 const Form = (props) => {
   const { notes, setNotes } = useContext(NoteContext);
   const [formData, setFormData] = useState({
+    id: "",
     name: "",
     date: "",
     note: "",
@@ -39,7 +40,7 @@ const Form = (props) => {
     });
     setFormErrors(dupFormErrors);
     return validation;
-  };
+  };  
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -47,7 +48,9 @@ const Form = (props) => {
     const noErrors = !Object.values(currentErrors).includes(true);
     if (noErrors) {
       const dupNotes = [...notes];
-      dupNotes.push(formData);
+      const noteId = notes.length + 1;
+      const formDataWithId = { ...formData, id: noteId };
+      dupNotes.push(formDataWithId);
       setNotes(dupNotes);
       props.handleExitClick();
     }
