@@ -36,6 +36,9 @@ Please see a **very basic** example here: [https://damonspencerroberts.github.io
 4. User can close the form by clicking on an exit button.
 5. Notes should be displayed with a nice list of note cards.
 6. If there are no notes display ‘No notes yet’ message to the user.
+7. There should be a way to sort the notes by date associated with the note.
+8. There should be a way to update a specific note.
+9. There should be a way to delete a specific note.
 
 ### Use Hooks
 
@@ -59,12 +62,13 @@ npm start
     
     [styled-components](https://styled-components.com/)
     
+2. Uuid
+    [uuid](https://www.npmjs.com/package/uuid)
 
 *Note: use any other packages that you find that might be relavent.*
 
 **Bonus:**
 
-- Add a sorting option to sort by date.
 - Colour randomiser for the note background
     - When adding a note have a random background color.
 - Different validation schema
@@ -72,8 +76,6 @@ npm start
 - Using redux for state management
 - Using `useContext` for state management
 - Awesome designs → More text, headers anything you want be creative
-- Ability to delete a note
-- Ability to update a note
 - More fields as inputs
 - Add a database to persist the data
 - Add Jest and test your components, and hooks.
