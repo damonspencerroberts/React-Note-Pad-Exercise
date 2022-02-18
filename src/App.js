@@ -10,9 +10,10 @@ import NoteContext from "./context/NoteContext";
 
 function App() {
   const [showForm, setShowForm] = useState(false);
+  const [sortNotes, setSortNotes] = useState(false);
   const [notes, setNotes] = useState([]);
   return (
-    <NoteContext.Provider value={{ notes, setNotes }}>
+    <NoteContext.Provider value={{ notes, setNotes, sortNotes, setSortNotes }}>
       <div
         style={{
           padding: 10,
@@ -33,6 +34,12 @@ function App() {
               Add a note
             </Button>
           )}
+          <Button
+            style={{ background: "orange", width: 200, marginTop: 10 }}
+            onClick={() => setSortNotes(!sortNotes)}
+          >
+            {sortNotes ? "Clear sorting changes" : "Sort by date"}
+          </Button>
         </MainContainer>
         <NotesContainer>
           <Notes />

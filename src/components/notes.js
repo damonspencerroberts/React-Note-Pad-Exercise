@@ -1,16 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Note from "./note";
 import styled from "styled-components";
 import NoteContext from "../context/NoteContext";
 
 const Notes = () => {
-  const { notes } = useContext(NoteContext);
+  const { notes, sortNotes } = useContext(NoteContext);
+  const [sortedNotes, setSortedNotes] = useState(notes);
   const notesLength = notes.length;
+
+  useEffect(() => {
+    if (sortNotes) {
+      const dupSortedNotes = [...notes];
+      const sortedDupSortedNotes = dupSortedNotes.sort(
+        (note1, note2) => new Date(note2.date) - new Date(note1.date)
+      );
+      setSortedNotes(sortedDupSortedNotes);
+    } else {
+      setSortedNotes(notes);
+    }
+  }, [sortNotes, notes]);
+
   return (
     <>
       {notesLength > 0 ? (
         <>
-          {notes.map((note, index) => {
+          {sortedNotes.map((note, index) => {
             return <Note key={index} note={note} />;
           })}
         </>
